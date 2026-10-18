@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuildBench — PC parts planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo" aria-hidden="true">▣</span> BuildBench</div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-act="tab" data-tab="builder" role="tab">Builder</button>
+      <button class="tab" data-act="tab" data-tab="library" role="tab">Parts library</button>
+      <button class="tab" data-act="tab" data-tab="guide" role="tab">Intricacies guide</button>
+    </nav>
+    <div class="topbar-total" id="top-total" aria-live="polite"></div>
+  </header>
+  <div id="price-bar" class="price-bar"></div>
+
+  <main>
+    <section id="view-builder" class="view">
+      <div class="presets" id="presets"></div>
+      <div class="toolbar">
+        <button class="btn" data-act="save">Save build</button>
+        <button class="btn" data-act="saved">Saved builds</button>
+        <button class="btn" data-act="copy">Copy parts list</button>
+        <button class="btn" data-act="csv">Download CSV</button>
+        <button class="btn" data-act="share">Copy share link</button>
+        <button class="btn btn-danger" data-act="clear">Clear</button>
+      </div>
+      <div class="builder-grid">
+        <div id="slots" class="slots"></div>
+        <aside id="summary" class="summary"></aside>
+      </div>
+    </section>
+
+    <section id="view-library" class="view" hidden>
+      <div class="lib-head">
+        <div class="chips" id="lib-chips"></div>
+        <input type="search" id="lib-search" class="input" placeholder="Search parts…" aria-label="Search parts">
+      </div>
+      <div class="table-wrap"><table class="parts-table" id="lib-table"></table></div>
+      <p class="fineprint">Specs and prices are illustrative approximations for planning and learning. Always verify against the manufacturer and retailer before buying.</p>
+    </section>
+
+    <section id="view-guide" class="view" hidden>
+      <div class="guide-layout">
+        <aside class="guide-toc" id="guide-toc"></aside>
+        <div class="guide-main">
+          <input type="search" id="guide-search" class="input" placeholder="Search the guide…" aria-label="Search the guide">
+          <div id="guide-articles"></div>
+          <h2 id="glossary" class="glossary-title">Glossary</h2>
+          <dl class="glossary" id="glossary-list"></dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" id="modal-box"></div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="prices/retailers.js"></script>
+  <script src="prices.js" onerror="void 0"></script>
+  <script src="guide.js"></script>
+  <script src="logic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

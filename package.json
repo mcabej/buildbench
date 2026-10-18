@@ -1,0 +1,7 @@
+{
+  "name": "buildbench",
+  "private": true,
+  "description": "AM4/AM5 PC build planner with live UK (GBP) prices",
+  "scripts": { "start": "node server.js", "prices": "node prices/update.js" },
+  "engines": { "node": ">=20" }
+}
